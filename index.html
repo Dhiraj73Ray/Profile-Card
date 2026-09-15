@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile Card</title>
-    <!--         CSS Style       -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhiraj Ray | Profile Card</title>
 
-    <!--        Boxicons        -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- <h1>Hello Dhiraj!</h1>
-    <p>This is my Demo</p> -->
 
-    <div class="profile-card">
-        <div class="image">
-            <img src="Image1.jpeg" alt="" class="profile-img">
-        </div>
-        <div class="text-data">
-            <span class="name">DhirajRay</span>
-            <span class="job">Python Developer & Web Developer</span>
-        </div>
-        <div class="media-buttons">
-            <a href="#" style = "background-color: #0a66c2;" class="link">
-                <i class='bx bxl-linkedin-square' ></i>
-            </a>
-            
-            <a href="#"  class="link">
-                <i class='bx bxl-github' style="color: #2b3137; font-size: 43px; background-color: white;"></i>
-            </a>
-            <a href="#" style = "background-color: #595f6a;" class="link">
-                <i class='bx bx-world' ></i>
-            </a>
-            <a href="#"  class="link" >
-                <img src="twitter1.png" alt="" class = "icon" >
-            </a>
-        </div>
-        <div class="buttons">
-            <button class="button like-button">
-                <i class='bx bxs-heart' ></i> <span>Like</span>
-            </button>
-            <button class="button download-button">
-                <span>Download</span>
-            </button>
-        </div>        
+  <main class="profile-card">
+    <div class="image">
+      <img src="Image1.jpeg" alt="Dhiraj Ray Profile Photo" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Dhiraj+Ray&background=4070f4&color=fff&size=150'" />
     </div>
+
+    <div class="text-data">
+      <h2 class="name">Dhiraj Ray</h2>
+      <span class="job">Python Developer &amp; Web Developer</span>
+    </div>
+
+    <div class="media-buttons">
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="link linkedin" aria-label="LinkedIn">
+        <i class="bx bxl-linkedin"></i>
+      </a>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link github" aria-label="GitHub">
+        <i class="bx bxl-github"></i>
+      </a>
+      <a href="https://dhirajray.netlify.app/" class="link website" aria-label="Personal Website">
+        <i class="bx bx-world"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="link twitter" aria-label="Twitter">
+        <i class="bx bxl-twitter"></i>
+      </a>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="button like-button" id="likeBtn">
+        <i class="bx bxs-heart"></i> <span>Like</span>
+      </button>
+      <button type="button" class="button download-button" id="downloadBtn">
+        <i class="bx bx-download"></i> <span>Download</span>
+      </button>
+    </div>
+  </main>
+
+  <script>
+    // Like button toggle
+    const likeBtn = document.getElementById('likeBtn');
+    likeBtn.addEventListener('click', () => {
+      likeBtn.classList.toggle('liked');
+      const textSpan = likeBtn.querySelector('span');
+      textSpan.textContent = likeBtn.classList.contains('liked') ? 'Liked' : 'Like';
+    });
+
+    // Download button
+    const downloadBtn = document.getElementById('downloadBtn');
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.href = 'Profile Card.zip';
+      link.download = 'Profile-Card.zip';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
 </body>
-<script>
-    // Like button functionality
-document.querySelector('.like-button').addEventListener('click', function () {
-    this.classList.toggle('liked'); // Toggle "liked" state
-});
-
-// Download button functionality
-document.querySelector('.download-button').addEventListener('click', function () {
-    // Create a temporary anchor element for downloading
-    const link = document.createElement('a');
-    link.href = 'Profile Card.zip'; // Update with the actual path to your zip file
-    link.download = 'project.zip'; // File name for download
-    document.body.appendChild(link); // Append link to the body
-    link.click(); // Trigger the click
-    document.body.removeChild(link); // Remove the link after download
-});
-
-</script>
 </html>
